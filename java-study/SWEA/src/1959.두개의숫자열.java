@@ -47,5 +47,6 @@ class Solution
 			}
 			System.out.println("#"+test_case+" "+Max);
 		}
+		sc.close();
 	}
 }
