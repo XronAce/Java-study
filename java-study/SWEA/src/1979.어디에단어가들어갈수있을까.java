@@ -67,5 +67,6 @@ class Solution1979
             int answer = cntcol + cntrow;
             System.out.println("#"+test_case+" "+answer);
 	    }
+        sc.close();
     }
 }   
