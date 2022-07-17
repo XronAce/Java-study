@@ -37,5 +37,6 @@ class Solution1936
                 }
             }
 		}
+        sc.close();
 	}
 }
