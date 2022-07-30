@@ -1,6 +1,6 @@
 package programmers;
 
-class Solution내적 {
+class 내적 {
     public int solution(int[] a, int[] b) {
         int dotProduct = 0;
         for (int i=0; i<a.length; i++) {
