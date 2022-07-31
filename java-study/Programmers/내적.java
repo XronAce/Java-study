@@ -1,3 +1,5 @@
+package Programmers;
+
 class 내적 {
     public int solution(int[] a, int[] b) {
         int dotProduct = 0;
