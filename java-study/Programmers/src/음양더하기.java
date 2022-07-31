@@ -1,5 +1,3 @@
-package programmers;
-
 public class 음양더하기 {
     public int solution(int[] absolutes, boolean[] signs) {
         int sum = 0;
