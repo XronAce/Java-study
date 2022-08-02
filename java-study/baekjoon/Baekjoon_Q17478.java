@@ -2,7 +2,7 @@ package baekjoon;
 
 import java.util.Scanner;
 
-public class Q17478 {
+public class Baekjoon_Q17478 {
 	static int repTime = 0;
 	static void foo(int N) {
 		StringBuilder sb = new StringBuilder();
