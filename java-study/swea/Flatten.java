@@ -42,8 +42,6 @@ class SolutionFlatten
 	static int heightDiff(int[] wall) {
 		int maxHeight = 0;
 		int minHeight = 100;
-		int maxIdx = 0;
-		int minIdx = 0;
 		
 		for (int i=0; i<100; i++) {
 			maxHeight = Math.max(maxHeight, wall[i]);
