@@ -50,21 +50,7 @@ class SolutionFlatten
 			minHeight = Math.min(minHeight, wall[i]);
 		}
 		
-		for (int i=0; i<100; i++) {
-			if (wall[i] == maxHeight) {
-				maxIdx = i;
-				break;
-			}
-		}
-		
-		for (int i=0; i<100; i++) {
-			if (wall[i] == minHeight) {
-				minIdx = i;
-				break;
-			}
-		}
-		
-		return wall[maxIdx]-wall[minIdx];
+		return maxHeight-minHeight;
 	}
 	
 	public static void main(String args[]) throws Exception
