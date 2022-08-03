@@ -11,3 +11,4 @@ java-study/SWEA/README.md
 .gitignore
 .gitignore
 java-study/SWEA/src/App.java
+*.class
