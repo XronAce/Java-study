@@ -29,7 +29,6 @@ public class Baekjoon_Q1966 {
                 maxImp = Math.max(maxImp, importance[i]);
             }
 
-            int testCnt = 0;
             while (printDoneCnt != N) {
                 Boolean isHighestPriority = true;
                 int currentIdx = printList.poll();
