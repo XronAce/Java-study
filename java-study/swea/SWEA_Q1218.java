@@ -36,6 +36,16 @@ public class SWEA_Q1218 {
                 else if (brackets[i].equals(">"))
                     numBracOpenP--;
 
+                // 만약 ), }, ], > 이 괄호가 열리기도 전에 나오면 잘못된 것이므로
+                if (numBracOpenS < 0 || numBracOpenM < 0 || numBracOpenB < 0 || numBracOpenP < 0) {
+                    isCorrect = false;
+                    break;
+                }
+            }
+
+            if (!isCorrect) {
+                System.out.println("#" + test_case + " " + "0");
+                continue;
             }
 
             if (numBracOpenS != 0 || numBracOpenM != 0 || numBracOpenB != 0 || numBracOpenP != 0) {
