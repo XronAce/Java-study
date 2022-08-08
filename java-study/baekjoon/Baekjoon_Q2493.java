@@ -22,8 +22,6 @@ public class Baekjoon_Q2493 {
             towers[i] = t;
         }
 
-        int cnt = 0;
-        int num = N;
         int idx = N - 1;
         boolean flag = false;
         while (!tower.empty()) {
