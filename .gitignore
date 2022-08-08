@@ -12,3 +12,6 @@ java-study/SWEA/README.md
 .gitignore
 java-study/SWEA/src/App.java
 *.class
+java-study/.settings/org.eclipse.jdt.core.prefs
+java-study/.settings/org.eclipse.wst.common.project.facet.core.xml
+java-study/.project
