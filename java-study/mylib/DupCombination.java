@@ -2,7 +2,7 @@ package mylib;
 
 // 중복조합 (nHr)
 public class DupCombination {
-    public static void combination(int[] arr, int[] out, int start, int depth, int r) {
+    public static void dupcombination(int[] arr, int[] out, int start, int depth, int r) {
         if (depth == r) {
             // Change code to get required output at here.
             /*
@@ -13,13 +13,13 @@ public class DupCombination {
         }
         for (int i = start; i < arr.length; i++) {
             out[depth] = arr[i];
-            combination(arr, out, i, depth + 1, r);
+            dupcombination(arr, out, i, depth + 1, r);
         }
     }
 
     public static void main(String[] args) {
         int[] arr = { 1, 2, 3 };
         int r = 2;
-        combination(arr, new int[r], 0, 0, r);
+        dupcombination(arr, new int[r], 0, 0, r);
     }
 }
