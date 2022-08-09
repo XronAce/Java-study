@@ -22,7 +22,6 @@ public class Permutation {
     public static void main(String[] args) {
         int[] arr = { 1, 2, 3 };
         int r = 2;
-        int[] output = new int[r];
         permutation(arr, new int[r], new boolean[arr.length], 0, r);
     }
 }
