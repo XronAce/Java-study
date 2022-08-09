@@ -18,7 +18,7 @@ public class SWEA_Q1233 {
             this.data = data;
         }
 
-        public Node(String data, int LeftNodeNum) {
+        public Node(String data, int leftNodeNum) {
             this.data = data;
             this.leftNodeNum = leftNodeNum;
         }
