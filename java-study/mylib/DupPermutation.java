@@ -10,8 +10,8 @@ public class DupPermutation {
              * for (int num : out)
              * System.out.print(num + " ");
              * System.out.println();
-             * return;
              */
+            return;
         }
         for (int i = 0; i < arr.length; i++) {
             out[depth] = arr[i];
