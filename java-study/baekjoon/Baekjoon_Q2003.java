@@ -17,9 +17,9 @@ class Baekjoon_Q2003 {
                 if (visited[i])
                     a[idx++] = arr[i];
             }
-            if ()
+            // if ()
             System.out.println();
-            
+
             return;
         }
         for (int i = start; i < arr.length; i++) {
