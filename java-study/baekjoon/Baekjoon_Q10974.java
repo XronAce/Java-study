@@ -14,7 +14,7 @@ public class Baekjoon_Q10974 {
         for (int i = 0; i < arr.length; i++) {
             if (!visited[i]) {
                 visited[i] = true;
-                out[depth] =
+                // out[depth] =
             }
         }
     }
