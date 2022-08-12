@@ -68,11 +68,9 @@ public class SWEA_Q4012 {
                 synergyDiff = Math.min(synergyDiff, synergyB - synergyA);
         }
         for (int i = start; i < N; i++) {
-            if (!isSelected[i]) {
-                isSelected[i] = true;
-                selection(cnt + 1, i + 1);
-                isSelected[i] = false;
-            }
+            isSelected[i] = true;
+            selection(cnt + 1, i + 1);
+            isSelected[i] = false;
         }
     }
 }
