@@ -21,34 +21,58 @@ public class Baekjoon_Q12891 {
         int reqG = Integer.parseInt(st.nextToken());
         int reqT = Integer.parseInt(st.nextToken());
 
-        int cntPossiblePw = 0;
         int cntA = 0;
         int cntC = 0;
         int cntG = 0;
         int cntT = 0;
+        int ans = 0;
 
-        int maxPossiblePw = S - P + 1;
+        int stIdx = 0;
+        int endIdx = stIdx + P;
 
-        for (int i = 0; i < maxPossiblePw; i++) {
-            for (int j = i; j < i + P; j++) {
-                if (dna[j].equals("A"))
-                    cntA++;
-                else if (dna[j].equals("C"))
-                    cntC++;
-                else if (dna[j].equals("G"))
-                    cntG++;
-                else
-                    cntT++;
+        for (int i = stIdx; i < endIdx; i++) {
+            if (dna[i].equals("A")) {
+                cntA++;
+            } else if (dna[i].equals("C")) {
+                cntC++;
+            } else if (dna[i].equals("G")) {
+                cntG++;
+            } else if (dna[i].equals("T")) {
+                cntT++;
             }
-            if (cntA >= reqA && cntC >= reqC && cntG >= reqG && cntT >= reqT) {
-                cntPossiblePw++;
-            }
-            cntA = 0;
-            cntC = 0;
-            cntG = 0;
-            cntT = 0;
         }
 
-        System.out.println(cntPossiblePw);
+        if (cntA >= reqA && cntC >= reqC && cntG >= reqG && cntT >= reqT) {
+            ans++;
+        }
+        endIdx++;
+        while (endIdx <= S) {
+            if (dna[stIdx].equals("A")) {
+                cntA--;
+            } else if (dna[stIdx].equals("C")) {
+                cntC--;
+            } else if (dna[stIdx].equals("G")) {
+                cntG--;
+            } else if (dna[stIdx].equals("T")) {
+                cntT--;
+            }
+
+            if (dna[endIdx - 1].equals("A")) {
+                cntA++;
+            } else if (dna[endIdx - 1].equals("C")) {
+                cntC++;
+            } else if (dna[endIdx - 1].equals("G")) {
+                cntG++;
+            } else if (dna[endIdx - 1].equals("T")) {
+                cntT++;
+            }
+            if (cntA >= reqA && cntC >= reqC && cntG >= reqG && cntT >= reqT) {
+                ans++;
+            }
+            stIdx++;
+            endIdx++;
+        }
+
+        System.out.println(ans);
     }
 }
