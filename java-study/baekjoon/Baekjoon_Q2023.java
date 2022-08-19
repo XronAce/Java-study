@@ -5,7 +5,13 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Baekjoon_Q2023 {
-    static Boolean isPrime(int num) {
+    public static int N;
+    public static StringBuilder sb = new StringBuilder();
+
+    public static Boolean isPrime(int num) {
+        if (num == 0) {
+            return false;
+        }
         if (num == 1) {
             return false;
         }
@@ -20,43 +26,23 @@ public class Baekjoon_Q2023 {
     public static void main(String[] args) throws NumberFormatException, IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        int N = Integer.parseInt(br.readLine());
+        N = Integer.parseInt(br.readLine());
 
-        StringBuilder sb = new StringBuilder();
-        StringBuilder sb2 = new StringBuilder();
-        for (int i = 0; i < N; i++) {
-            sb.append(9);
-            if (i == 0)
-                sb2.append(1);
-            else
-                sb2.append(0);
+        dfs("", 0);
+
+        System.out.println(sb);
+    }
+
+    public static void dfs(String s, int cnt) {
+        if (cnt == N) {
+            sb.append(s).append("\n");
+            return;
         }
 
-        int maxNum = Integer.valueOf(sb.toString());
-        int minNum = Integer.valueOf(sb2.toString());
-        boolean flag = false;
-        String s = "";
-
-        while (maxNum != minNum) {
-            for (int i = 0; i < N; i++) {
-                s = String.valueOf(minNum).substring(0, N - i);
-                if (isPrime(Integer.valueOf(s))) {
-                    flag = true;
-                } else {
-                    flag = false;
-                    break;
-                }
+        for (int i = 0; i <= 9; i++) {
+            if (isPrime(Integer.parseInt(s + i))) {
+                dfs(s + i, cnt + 1);
             }
-            if (flag == true) {
-                System.out.println(minNum);
-            }
-            flag = false;
-            minNum++;
         }
-
     }
 }
-
-/*
- * 처음부터 minNum이 가능한 숫자를 조합해나가면서 신기한 소수 판별을 진행한다.
- */
