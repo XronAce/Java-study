@@ -5,16 +5,20 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Baekjoon_Q1074 {
+    public static int[][] arr;
+
+    public static void fill(int[][] arr, int r, int c, int size) {
+
+    }
+
     public static void main(String[] args) throws NumberFormatException, IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         int N = Integer.parseInt(br.readLine());
+        int r = Integer.parseInt(br.readLine());
+        int c = Integer.parseInt(br.readLine());
 
-        int[][] arr = new int[(int) Math.pow(2, N)][(int) Math.pow(2, N)];
+        arr = new int[(int) Math.pow(2, N)][(int) Math.pow(2, N)];
 
-        for (int i = 0; i < (int) Math.pow(2, N); i++) {
-            if (i % 2 == 0) {
-            }
-        }
     }
 }
