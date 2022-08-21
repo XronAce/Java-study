@@ -3,7 +3,6 @@ package swea;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class SWEA_Q1861withdfs {
@@ -41,7 +40,6 @@ public class SWEA_Q1861withdfs {
                 }
             }
 
-            System.out.println(Arrays.toString(store));
             for (int i = 1; i < store.length; i++) {
                 if (store[i] == ans) {
                     num = i;
@@ -50,6 +48,8 @@ public class SWEA_Q1861withdfs {
             }
 
             System.out.println("#" + test_case + " " + num + " " + ans);
+            num = 0;
+            ans = 0;
 
         }
     }
@@ -57,7 +57,9 @@ public class SWEA_Q1861withdfs {
     public static void traverse(int r, int c, int startingNum, int numBefore, int count) {
         if (count != 0 && room[r][c] - 1 != numBefore) {
             ans = Math.max(ans, count);
-            store[startingNum] = count;
+            if (ans == count) {
+                store[startingNum] = count;
+            }
             return;
         } else {
             for (int i = 0; i < 4; i++) {
