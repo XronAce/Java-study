@@ -15,11 +15,8 @@ swea5644
 8/19
 bj17135
 
-++dfs, 백트래킹
-
 8/23
 ** 서로소 집합(disjoint-set)을 풀기 위해 union-find 자료구조 공부 후 아래 문제 풀기
-swea3289
 swea1251
 swea7465
 
