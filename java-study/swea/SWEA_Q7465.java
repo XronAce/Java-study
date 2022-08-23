@@ -7,9 +7,8 @@ import java.util.Arrays;
 import java.util.StringTokenizer;
 
 class SWEA_Q7465 {
-    public static int[][] adjMatrix;
-    public static int N, M, ans;
-    public static int[] whoIsTheRep;
+    public static int N, M;
+    public static int[] parent;
 
     public static void main(String[] args) throws NumberFormatException, IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -22,51 +21,44 @@ class SWEA_Q7465 {
             N = Integer.parseInt(st.nextToken());
             M = Integer.parseInt(st.nextToken());
 
-            adjMatrix = new int[N + 1][N + 1];
-            whoIsTheRep = new int[N + 1];
+            parent = new int[N + 1];
+            for (int i = 1; i < N + 1; i++) {
+                parent[i] = i;
+            }
+
             for (int i = 0; i < M; i++) {
                 st = new StringTokenizer(br.readLine(), " ");
                 int a = Integer.parseInt(st.nextToken());
                 int b = Integer.parseInt(st.nextToken());
-                adjMatrix[b][a] = 1;
-                adjMatrix[a][b] = 1;
+
+                union(a, b);
             }
 
-            for (int i = 1; i <= N; i++) {
-                for (int j = 1; j <= N; j++) {
-                    if (adjMatrix[i][j] == 1) {
-                        if (whoIsTheRep[i] == 0) {
-                            whoIsTheRep[i] = i;
-                        }
-                        if (whoIsTheRep[j] == 0) {
-                            whoIsTheRep[j] = whoIsTheRep[i];
-                        }
-                    }
-                }
-            }
-            System.out.println(Arrays.toString(whoIsTheRep));
-            for (int i = 1; i <= N; i++) {
-                if (whoIsTheRep[i] == 0) {
-                    whoIsTheRep[i] = i;
-                }
-            }
-
-            boolean[] isRep = new boolean[N + 1];
-            for (int i = 1; i <= N; i++) {
-                if (!isRep[whoIsTheRep[i]]) {
-                    isRep[whoIsTheRep[i]] = true;
-                }
-            }
-            System.out.println(Arrays.toString(isRep));
-            ans = 0;
-            for (int i = 1; i <= N; i++) {
-                if (isRep[i]) {
+            int ans = 0;
+            for (int i = 1; i < N + 1; i++) {
+                if (parent[i] == i) {
                     ans++;
                 }
             }
-
             System.out.println("#" + test_case + " " + ans);
         }
 
+    }
+
+    public static int find(int a) {
+        if (parent[a] == a) {
+            return a;
+        } else {
+            return parent[a] = find(parent[a]);
+        }
+    }
+
+    public static void union(int a, int b) {
+        a = find(a);
+        b = find(b);
+
+        if (a != b) {
+            parent[b] = a;
+        }
     }
 }
