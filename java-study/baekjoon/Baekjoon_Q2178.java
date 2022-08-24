@@ -3,7 +3,18 @@ package baekjoon;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.StringTokenizer;
+
+class Position {
+    int r, c;
+
+    public Position(int r, int c) {
+        this.r = r;
+        this.c = c;
+    }
+}
 
 public class Baekjoon_Q2178 {
     public static int N, M;
@@ -11,7 +22,7 @@ public class Baekjoon_Q2178 {
     public static int[] dx = { 1, -1, 0, 0 };
     public static int[] dy = { 0, 0, -1, 1 };
     public static boolean[][] isVisited;
-    public static int ans = Integer.MAX_VALUE;
+    public static int ans = 0;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -30,29 +41,33 @@ public class Baekjoon_Q2178 {
             }
         }
 
-        isVisited[0][0] = true;
-        dfs(0, 0, 1);
+        Position pos = new Position(0, 0);
+        bfs(pos);
 
-        System.out.println(ans);
-
+        System.out.println(map[N - 1][M - 1]);
     }
 
-    public static void dfs(int r, int c, int depth) {
-        if (r == N - 1 && c == M - 1) {
-            ans = Math.min(ans, depth);
-            return;
-        }
+    public static void bfs(Position pos) {
+        Queue<Position> que = new LinkedList<>();
+        que.offer(pos);
+        isVisited[pos.r][pos.c] = true;
 
-        for (int i = 0; i < 4; i++) {
-            int newR = r + dx[i];
-            int newC = c + dy[i];
-
-            if (newR >= 0 && newC >= 0 && newR < N && newC < M && map[newR][newC] == 1 && !isVisited[newR][newC]) {
-                isVisited[newR][newC] = true;
-                dfs(newR, newC, depth + 1);
-                isVisited[newR][newC] = false;
+        while (!que.isEmpty()) {
+            Position cur = que.poll();
+            int curR = cur.r;
+            int curC = cur.c;
+            for (int i = 0; i < 4; i++) {
+                int newR = curR + dx[i];
+                int newC = curC + dy[i];
+                if (newR >= 0 && newC >= 0 && newR < N && newC < M) {
+                    if (map[newR][newC] == 1 && !isVisited[newR][newC]) {
+                        Position newPos = new Position(newR, newC);
+                        isVisited[newR][newC] = true;
+                        map[newR][newC] = map[curR][curC] + 1;
+                        que.add(newPos);
+                    }
+                }
             }
         }
-
     }
 }
