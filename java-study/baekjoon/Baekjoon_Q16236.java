@@ -19,6 +19,8 @@ public class Baekjoon_Q16236 {
     public static int[][] timeMap;
     public static List<int[]> eatableFish = new ArrayList<>();
     public static Queue<int[]> eatingQue = new LinkedList<>();
+    public static int[] dx = { -1, 1, 0, 0 };
+    public static int[] dy = { 0, 0, -1, 1 };
 
     public static void main(String[] args) throws NumberFormatException, IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -80,6 +82,16 @@ public class Baekjoon_Q16236 {
             }
         });
 
+        for (int i = 0; i < eatableFish.size(); i++) {
+            eatingQue.offer(eatableFish.get(i));
+        }
+
+        while (!eatingQue.isEmpty()) {
+            for (int i = 0; i < 4; i++) {
+                int newR = bsR + dx[i];
+                int newC = bsC + dy[i];
+            }
+        }
     }
 }
 
