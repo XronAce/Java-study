@@ -8,10 +8,10 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-class Position {
+class Coordinate {
     int r, c;
 
-    public Position(int r, int c) {
+    public Coordinate(int r, int c) {
         this.r = r;
         this.c = c;
     }
@@ -25,7 +25,7 @@ public class Baekjoon_Q3055 {
     public static int[] dy = { 0, 0, -1, 1 };
     public static boolean[][] isVisited;
     public static int[][] intMap;
-    public static Queue<Position> move;
+    public static Queue<Coordinate> move;
     public static boolean isDone;
 
     public static void main(String[] args) throws IOException {
@@ -53,7 +53,7 @@ public class Baekjoon_Q3055 {
                 }
             }
         }
-        Position start = new Position(startR, startC);
+        Coordinate start = new Coordinate(startR, startC);
 
         floodFill();
         bfs(start);
@@ -71,7 +71,7 @@ public class Baekjoon_Q3055 {
 
     }
 
-    public static void bfs(Position start) {
+    public static void bfs(Coordinate start) {
         isVisited[start.r][start.c] = true;
         for (int i = 0; i < 4; i++) {
             int newR = start.r + dx[i];
@@ -79,7 +79,7 @@ public class Baekjoon_Q3055 {
 
             if (newR >= 0 && newC >= 0 && newR < R && newC < C) {
                 if (map[newR][newC] != '*' && map[newR][newC] != 'X' && !isVisited[newR][newC]) {
-                    Position temp = new Position(newR, newC);
+                    Coordinate temp = new Coordinate(newR, newC);
                     move.offer(temp);
                     isVisited[newR][newC] = true;
                     intMap[newR][newC] = intMap[start.r][start.c] + 1;

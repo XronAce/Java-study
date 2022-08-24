@@ -7,10 +7,10 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-class Position {
+class Posit {
     int r, c;
 
-    public Position(int r, int c) {
+    public Posit(int r, int c) {
         this.r = r;
         this.c = c;
     }
@@ -41,19 +41,19 @@ public class Baekjoon_Q2178 {
             }
         }
 
-        Position pos = new Position(0, 0);
+        Posit pos = new Posit(0, 0);
         bfs(pos);
 
         System.out.println(map[N - 1][M - 1]);
     }
 
-    public static void bfs(Position pos) {
-        Queue<Position> que = new LinkedList<>();
+    public static void bfs(Posit pos) {
+        Queue<Posit> que = new LinkedList<>();
         que.offer(pos);
         isVisited[pos.r][pos.c] = true;
 
         while (!que.isEmpty()) {
-            Position cur = que.poll();
+            Posit cur = que.poll();
             int curR = cur.r;
             int curC = cur.c;
             for (int i = 0; i < 4; i++) {
@@ -61,7 +61,7 @@ public class Baekjoon_Q2178 {
                 int newC = curC + dy[i];
                 if (newR >= 0 && newC >= 0 && newR < N && newC < M) {
                     if (map[newR][newC] == 1 && !isVisited[newR][newC]) {
-                        Position newPos = new Position(newR, newC);
+                        Posit newPos = new Posit(newR, newC);
                         isVisited[newR][newC] = true;
                         map[newR][newC] = map[curR][curC] + 1;
                         que.add(newPos);
