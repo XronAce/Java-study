@@ -5,25 +5,25 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-class House {
-    int r, c;
-
-    public House(int r, int c) {
-        this.r = r;
-        this.c = c;
-    }
-}
-
-class Shop {
-    int r, c;
-
-    public Shop(int r, int c) {
-        this.r = r;
-        this.c = c;
-    }
-}
-
 public class Baekjoon_Q15686 {
+    static class Shop {
+        int r, c;
+
+        public Shop(int r, int c) {
+            this.r = r;
+            this.c = c;
+        }
+    }
+
+    static class House {
+        int r, c;
+
+        public House(int r, int c) {
+            this.r = r;
+            this.c = c;
+        }
+    }
+
     static int N, M, shopCnt, houseCnt;
     static House[] houses;
     static Shop[] shops;
