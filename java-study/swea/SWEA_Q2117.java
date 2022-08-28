@@ -38,7 +38,12 @@ public class SWEA_Q2117 {
                 ans = Math.max(ans, house);
                 K++;
             }
-            System.out.println(scan(4));
+
+            // ans = 0;
+            for (int i = 0; i < 18; i++) {
+                house = scan(i);
+                ans = Math.max(ans, house);
+            }
 
             System.out.println("#" + test_case + " " + ans);
 
