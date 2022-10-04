@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Baekjoon_2239 {
+public class Baekjoon_Q2239 {
     public static int[][] sudoku;
     public static int[] chkRow, chkCol, chkBox; // 행, 열, 미니정사각형 범위로 입력 가능한 숫자들을 저장하는 배열
 
