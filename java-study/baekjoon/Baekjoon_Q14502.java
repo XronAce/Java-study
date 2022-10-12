@@ -25,8 +25,8 @@ public class Baekjoon_Q14502 {
 
         StringTokenizer st = new StringTokenizer(br.readLine(), " ");
 
-        int N = Integer.parseInt(st.nextToken());
-        int M = Integer.parseInt(st.nextToken());
+        N = Integer.parseInt(st.nextToken());
+        M = Integer.parseInt(st.nextToken());
 
         lab = new int[N][M];
         labCopy = new int[N][M];
@@ -64,17 +64,20 @@ public class Baekjoon_Q14502 {
             System.out.println(Arrays.toString(out));
             arrayDeepCopy();
             System.out.println("labCopy");
-            for (int[] innerArr : labCopy) {
-                System.out.println(Arrays.toString(innerArr));
-            }
             for (int i = 0; i < out.length; i++) {
                 int wallR = zeroes.get(out[i])[0];
                 int wallC = zeroes.get(out[i])[1];
                 labCopy[wallR][wallC] = 1;
             }
+            for (int[] innerArr : labCopy) {
+                System.out.println(Arrays.toString(innerArr));
+            }
             for (int i = 0; i < viruses.size(); i++) {
                 spread(i);
-
+            }
+            System.out.println("After Spread");
+            for (int[] innerArr : labCopy) {
+                System.out.println(Arrays.toString(innerArr));
             }
             countZero();
             return;
