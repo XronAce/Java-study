@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
@@ -31,7 +30,6 @@ public class Baekjoon_Q14502 {
         lab = new int[N][M];
         labCopy = new int[N][M];
         isVisited = new boolean[N][M];
-        isVisited2 = new boolean[N][M];
         ans = 0;
 
         for (int i = 0; i < N; i++) {
@@ -47,37 +45,21 @@ public class Baekjoon_Q14502 {
                 }
             }
         }
-        for (int[] innerArr : lab) {
-            System.out.println(Arrays.toString(innerArr));
-        }
-        
-        for (int i = 0; i < zeroes.size(); i++) {
-            System.out.println(Arrays.toString(zeroes.get(i)));
-        }
-
         combination(0, 0, new int[3]);
         System.out.println(ans);
     }
     
+    // 안전구역 3개 벽 설치를 위한 조합
     public static void combination(int depth, int start, int[] out) {
         if (depth == 3) {
-            System.out.println(Arrays.toString(out));
             arrayDeepCopy();
-            System.out.println("labCopy");
             for (int i = 0; i < out.length; i++) {
                 int wallR = zeroes.get(out[i])[0];
                 int wallC = zeroes.get(out[i])[1];
                 labCopy[wallR][wallC] = 1;
             }
-            for (int[] innerArr : labCopy) {
-                System.out.println(Arrays.toString(innerArr));
-            }
             for (int i = 0; i < viruses.size(); i++) {
                 spread(i);
-            }
-            System.out.println("After Spread");
-            for (int[] innerArr : labCopy) {
-                System.out.println(Arrays.toString(innerArr));
             }
             countZero();
             return;
@@ -93,6 +75,7 @@ public class Baekjoon_Q14502 {
         }
     }
 
+    // 배열 깊은복사
     public static void arrayDeepCopy() {
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < M; j++) {
@@ -101,7 +84,9 @@ public class Baekjoon_Q14502 {
         }
     }
 
+    // 바이러스 확산
     public static void spread(int idx) {
+        isVisited2 = new boolean[N][M];
         int[] start = viruses.get(idx);
         Queue<int[]> que = new LinkedList<>();
         que.add(start);
@@ -124,6 +109,7 @@ public class Baekjoon_Q14502 {
         }
     }
 
+    // 바이러스 확산 후 안전구역 카운팅
     public static void countZero() {
         int cnt = 0;
         for (int i = 0; i < N; i++) {
@@ -134,11 +120,6 @@ public class Baekjoon_Q14502 {
             }
         }
 
-        System.out.println();
-        for (int[] innerArr : labCopy) {
-            System.out.println(Arrays.toString(innerArr));
-        }
-        System.out.println(cnt);
         ans = Math.max(ans, cnt);
     }
 }
