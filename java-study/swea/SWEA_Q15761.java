@@ -16,36 +16,25 @@ public class SWEA_Q15761 {
 			int A = Integer.parseInt(st.nextToken());
 			int B = Integer.parseInt(st.nextToken());
 			
-			String maxNum = "";
-			String minNum = "1";
-			for (int i=0; i<A; i++) {
-				maxNum += "1";
-			}
+			int ans = 0;
 			
-			for (int i=0; i<B; i++) {
-				maxNum += "0";
-				minNum += "0";
-			}
-			
-			for (int i=0; i<A-1; i++) {
-				minNum += "1";
-			}
-			
-			int maxNumInDec = Integer.parseInt(maxNum, 2);
-			int minNumInDec = Integer.parseInt(minNum, 2);
-			
-			int res = maxNumInDec * minNumInDec;
-			
-			String ans = Integer.toBinaryString(res);
-			int cntOne = 0;
-			
-			for (int i=0; i<ans.length(); i++) {
-				if (ans.charAt(i) == '1') {
-					cntOne++;
+			if (B == 0) {
+				ans = A;
+			} else if (A == 1) {
+				ans = 1;
+			} else if (B == 1) {
+				if (A == 2) {
+					ans = 4;
+				} else {
+					ans = A + 1;
 				}
+			} else if (A > B) {
+				ans = A;
+			} else if (A <= B) {
+				ans = 2*A;
 			}
 			
-			System.out.println("#"+test_case+" "+cntOne);
+			System.out.println("#"+test_case+" "+ans);
 		}
 	}
 }
