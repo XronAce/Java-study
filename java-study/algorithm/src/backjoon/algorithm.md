@@ -8,9 +8,10 @@
 ### Queue
     - Q13335
 ### BFS
+    - Q2606_adjMatrix_bfs
 ### DFS
     - Q1189
-
+    - Q2606_adjMatrix_dfs
 ## Java 기초
 ### 기본 입출력
     - Q1550
