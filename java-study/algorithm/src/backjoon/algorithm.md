@@ -11,6 +11,7 @@
     - Q2606_adjMatrix_bfs
     - Q2667
     - Q5014
+    - Q2468
 ### DFS
     - Q1189
     - Q2606_adjMatrix_dfs
