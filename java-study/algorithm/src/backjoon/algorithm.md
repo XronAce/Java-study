@@ -17,6 +17,8 @@
     - Q1189
     - Q2606_adjMatrix_dfs
     - Q2644
+### Greedy
+    - Q5585
 ## Java 기초
 ### 기본 입출력
     - Q1550
