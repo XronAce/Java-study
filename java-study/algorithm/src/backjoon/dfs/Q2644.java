@@ -1,4 +1,4 @@
-package backjoon;
+package backjoon.dfs;
 
 import java.io.*;
 import java.util.StringTokenizer;

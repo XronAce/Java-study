@@ -1,4 +1,4 @@
-package backjoon;
+package backjoon.bfs;
 
 import java.io.*;
 import java.util.Collections;
