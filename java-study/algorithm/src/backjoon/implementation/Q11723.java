@@ -22,30 +22,37 @@ public class Q11723 {
                 num = Integer.parseInt(st.nextToken());
             }
 
-            if (command.equals("add")) {
-                isNumInS[num] = true;
-            } else if (command.equals("remove")) {
-                isNumInS[num] = false;
-            } else if (command.equals("check")) {
-                if (isNumInS[num]) {
-                    bw.write(1+"\n");
-                } else {
-                    bw.write(0+"\n");
-                }
-            } else if (command.equals("toggle")) {
-                if (isNumInS[num]) {
-                    isNumInS[num] = false;
-                } else {
+            switch (command) {
+                case "add":
                     isNumInS[num] = true;
-                }
-            } else if (command.equals("all")) {
-                for (int j=1; j<=20; j++) {
-                    isNumInS[j] = true;
-                }
-            } else {
-                for (int j=1; j<=20; j++) {
-                    isNumInS[j] = false;
-                }
+                    break;
+                case "remove":
+                    isNumInS[num] = false;
+                    break;
+                case "check":
+                    if (isNumInS[num]) {
+                        bw.write(1 + "\n");
+                    } else {
+                        bw.write(0 + "\n");
+                    }
+                    break;
+                case "toggle":
+                    if (isNumInS[num]) {
+                        isNumInS[num] = false;
+                    } else {
+                        isNumInS[num] = true;
+                    }
+                    break;
+                case "all":
+                    for (int j = 1; j <= 20; j++) {
+                        isNumInS[j] = true;
+                    }
+                    break;
+                default:
+                    for (int j = 1; j <= 20; j++) {
+                        isNumInS[j] = false;
+                    }
+                    break;
             }
         }
         bw.flush();
