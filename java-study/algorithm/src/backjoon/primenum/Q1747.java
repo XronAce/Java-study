@@ -1,4 +1,4 @@
-package backjoon.greedy;
+package backjoon.primenum;
 
 import java.io.BufferedReader;
 import java.io.IOException;
