@@ -16,40 +16,23 @@ public class Q10431 {
         int[][] children = new int[T][21];
         for (int i=0; i<T; i++) {
             st = new StringTokenizer(br.readLine(), " ");
-            for (int j=0; j<21; j++) {
+            for (int j = 0; j < 21; j++) {
                 children[i][j] = Integer.parseInt(st.nextToken());
             }
         }
 
-        LinkedList<Integer> list = new LinkedList<>();
-        int idx;
         for (int i=0; i<T; i++) {
-            list.offer(children[i][1]);
-            for (int j=2; j<21; j++) {
-                idx = -1;
-                for (int k = 0; k < list.size(); k++) {
-                    if (list.get(k) > children[i][j]) {
-                        idx = k;
-                        break;
+            for (int j=1; j<21; j++) {
+                for (int k=1; k<j; k++) {
+                    if (children[i][k] > children[i][j]) {
+                        ans++;
                     }
                 }
-
-                if (idx == -1) {
-                    list.offerLast(children[i][j]);
-                } else if (idx == 0) {
-                    list.offerFirst(children[i][j]);
-                    ans += list.size() - 1;
-                } else {
-                    list.add(idx-1, children[i][j]);
-                    ans += list.size() - idx - 1;
-                }
-//                System.out.println(list);
-//                System.out.println(ans);
             }
-            bw.write(children[i][0] + " " + ans + "\n");
+            bw.write(children[i][0]+ " " + ans+"\n");
             ans = 0;
-            list.clear();
         }
+
 
         bw.flush();
         bw.close();
