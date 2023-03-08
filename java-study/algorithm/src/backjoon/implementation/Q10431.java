@@ -1,9 +1,7 @@
 package backjoon.implementation;
 
 import java.io.*;
-import java.util.ArrayDeque;
-import java.util.Deque;
-import java.util.StringTokenizer;
+import java.util.*;
 
 public class Q10431 {
     public static void main(String[] args) throws IOException {
@@ -23,21 +21,36 @@ public class Q10431 {
             }
         }
 
-        Deque<Integer> deque = new ArrayDeque<>();
+        LinkedList<Integer> list = new LinkedList<>();
+        int idx;
         for (int i=0; i<T; i++) {
-            deque.offerLast(children[i][1]);
+            list.offer(children[i][1]);
             for (int j=2; j<21; j++) {
-                if (deque.peekLast() > children[i][j]) {
-                    ans += deque.size();
-                    deque.offerFirst(children[i][j]);
-                } else {
-                    deque.offerLast(children[i][j]);
+                idx = -1;
+                for (int k = 0; k < list.size(); k++) {
+                    if (list.get(k) > children[i][j]) {
+                        idx = k;
+                        break;
+                    }
                 }
+
+                if (idx == -1) {
+                    list.offerLast(children[i][j]);
+                } else if (idx == 0) {
+                    list.offerFirst(children[i][j]);
+                    ans += list.size() - 1;
+                } else {
+                    list.add(idx-1, children[i][j]);
+                    ans += list.size() - idx - 1;
+                }
+//                System.out.println(list);
+//                System.out.println(ans);
             }
-            deque.clear();
-            bw.write(i+1 + " " + ans+"\n");
+            bw.write(children[i][0] + " " + ans + "\n");
             ans = 0;
+            list.clear();
         }
+
         bw.flush();
         bw.close();
         br.close();
