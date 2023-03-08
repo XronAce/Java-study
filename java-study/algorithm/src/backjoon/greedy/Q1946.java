@@ -1,3 +1,5 @@
+package backjoon.greedy;
+
 import java.io.*;
 import java.util.StringTokenizer;
 
