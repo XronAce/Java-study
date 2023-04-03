@@ -25,6 +25,8 @@
     - Q9655
 ### Hash (HashSet, HashMap)
     - Q25757
+### Sort
+    - Q2751
 ### 에라토스테네스의 체(소수판별법)
     - Q1747
 ### Implementation
