@@ -20,14 +20,21 @@
     - Q2644
 ### Greedy
     - Q5585
-    - Q1946
+    - backjoon.greedy.Q1946
 ### DP
     - Q9655
+### Hash (HashSet, HashMap)
+    - Q25757
+### Sort
+    - Q2751
 ### 에라토스테네스의 체(소수판별법)
     - Q1747
 ### Implementation
     - Q11723
     - Q10431
+    - Q8979
+    - Q7568
+    - Q4659
 ## Java 기초
 ### 기본 입출력
     - Q1550
