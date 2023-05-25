@@ -29,8 +29,9 @@
     - Q2751
 ### 에라토스테네스의 체(소수판별법)
     - Q1747
-### Sliding Window
+### Sliding Window & Two Pointers
     - Q21921
+    - Q2531
 ### Implementation
     - Q11723
     - Q10431

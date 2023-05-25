@@ -15,59 +15,60 @@ public class Q2531 {
         int k = Integer.parseInt(st.nextToken());
         int c = Integer.parseInt(st.nextToken());
 
+        int ans;
+
         int[] arr = new int[N];
         for (int i=0; i<N; i++) {
             arr[i] = Integer.parseInt(br.readLine());
         }
 
-        int cnt;
-        int ans = 0;
-        Set<Integer> set;
-        for (int i=0; i<N; i++) {
-            cnt = 0;
-            set = new HashSet<>();
-            for (int j=i; j<i+k; j++) {
-                if (j < N) {
-                    set.add(arr[j]);
-                } else {
-                    set.add(arr[j-N]);
-                }
-            }
+        int stIdx = 0;
+        int endIdx = stIdx + k - 1;
+        Map<Integer, Integer> hm = new HashMap<>();
 
-            boolean isCouponUsed = false;
-
-            if (i-1 >= 0) {
-                if (arr[i-1] == c) {
-                    isCouponUsed = true;
-                }
+        for (int i=stIdx; i<=endIdx; i++) {
+            if (hm.containsKey(arr[i])) {
+                hm.put(arr[i], hm.get(arr[i]) + 1);
             } else {
-                if (arr[N-1] == c) {
-                    isCouponUsed = true;
-                }
+                hm.put(arr[i], 1);
+            }
+        }
+
+        int cnt = hm.size();
+
+        if (!hm.containsKey(c)) {
+            cnt++;
+        }
+
+        ans = cnt;
+
+        int temp = 1;
+        while (temp != N) {
+            temp++;
+            hm.put(arr[stIdx], hm.get(arr[stIdx])-1);
+            if (hm.get(arr[stIdx]) == 0) {
+                hm.remove(arr[stIdx]);
+            }
+            stIdx++;
+            endIdx++;
+            if (endIdx >= N) {
+                endIdx -= N;
             }
 
-            if (i+k < N) {
-                if (arr[i+k] == c) {
-                    isCouponUsed = true;
-                }
+            if (hm.containsKey(arr[endIdx])) {
+                hm.put(arr[endIdx], hm.get(arr[endIdx])+1);
             } else {
-                if (arr[i+k-N] == c) {
-                    isCouponUsed = true;
-                }
+                hm.put(arr[endIdx], 1);
             }
 
-            if (set.contains(c)) {
-                isCouponUsed = false;
-            }
+            cnt = hm.size();
 
-            if (isCouponUsed) {
+            if (!hm.containsKey(c)) {
                 cnt++;
             }
 
-            cnt += set.size();
-            ans = Math.max(cnt, ans);
+            ans = Math.max(ans, cnt);
         }
-
 
         System.out.println(ans);
     }
